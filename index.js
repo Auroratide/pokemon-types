@@ -173,5 +173,15 @@ const singleDefensiveMultiplers = withNeutral({
     },
 })
 
-export const defensiveMultipliers = (types) =>
-    singleDefensiveMultiplers[types[0]]
+const combine = (type1, type2) => Object.entries(type1).reduce((combined, [attackingType, multiplier]) => ({
+    ...combined,
+    [attackingType]: multiplier * type2[attackingType],
+}), {})
+
+export const defensiveMultipliers = (types) => {
+    if (types.length > 1)
+        return combine(singleDefensiveMultiplers[types[0]], singleDefensiveMultiplers[types[1]])
+    else {
+        return singleDefensiveMultiplers[types[0]]
+    }
+}
