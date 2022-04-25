@@ -95,4 +95,27 @@ test('dual types', () => {
     })
 })
 
+test('many types', () => {
+    assert.equal(defensiveMultipliers(['flying', 'fire', 'bug']), {
+        normal: neutral,
+        fighting: resistant * resistant,
+        flying: vulnerable,
+        poison: neutral,
+        ground: immune,
+        rock: vulnerable * vulnerable * vulnerable,
+        bug: resistant * resistant,
+        ghost: neutral,
+        steel: resistant,
+        fire: neutral,
+        water: vulnerable,
+        grass: resistant * resistant * resistant,
+        electric: vulnerable,
+        psychic: neutral,
+        ice: neutral,
+        dragon: neutral,
+        dark: neutral,
+        fairy: resistant,
+    })
+})
+
 test.run()
