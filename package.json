@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Calculate vulnerabilities and resistances of pokemon types, including three or more types",
   "main": "index.js",
+  "module": "index.js",
   "type": "module",
   "scripts": {
     "test": "uvu"
@@ -10,6 +11,10 @@
   "author": {
     "name": "Timothy Foster",
     "url": "https://auroratide.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Auroratide/pokemon-types"
   },
   "license": "ISC",
   "devDependencies": {
