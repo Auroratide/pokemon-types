@@ -3,12 +3,12 @@ const neutral = 1
 const resistant = 0.5
 const immune = 0
 
-const types = ['normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark', 'fairy']
+const allTypes = ['normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark', 'fairy']
 
 const withNeutral = (allMultipliers) =>
     Object.entries(allMultipliers).reduce((multipliersWithNeutral, [defendingType, typeMultipliers]) => ({
         ...multipliersWithNeutral,
-        [defendingType]: types.reduce((multipliers, attackingType) => ({
+        [defendingType]: allTypes.reduce((multipliers, attackingType) => ({
             ...multipliers,
             [attackingType]: typeMultipliers[attackingType] ?? neutral,
         }), {})
@@ -178,6 +178,11 @@ const combine = (type1, type2) => Object.entries(type1).reduce((combined, [attac
     [attackingType]: multiplier * type2[attackingType],
 }), {})
 
-export const defensiveMultipliers = (types) => types
-    .map(type => singleDefensiveMultiplers[type])
-    .reduce(combine)
+export const defensiveMultipliers = (types) => {
+    if (types.some(it => !allTypes.includes(it)))
+        throw new Error(`Invalid Pokemon type: [${types.join(', ')}]`)
+
+    return types
+        .map(type => singleDefensiveMultiplers[type])
+        .reduce(combine)
+}

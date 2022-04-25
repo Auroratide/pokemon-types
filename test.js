@@ -118,4 +118,10 @@ test('many types', () => {
     })
 })
 
+test('unknown type', () => {
+    assert.throws(() => {
+        defensiveMultipliers(['unknown'])
+    })
+})
+
 test.run()
