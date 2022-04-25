@@ -11,7 +11,8 @@
   "module": "index.js",
   "type": "module",
   "scripts": {
-    "test": "uvu"
+    "test": "uvu",
+    "prepublishOnly": "npm t"
   },
   "author": {
     "name": "Timothy Foster",
