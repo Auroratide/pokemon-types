@@ -2,6 +2,11 @@
   "name": "@auroratide/pokemon-types",
   "version": "0.0.1",
   "description": "Calculate vulnerabilities and resistances of pokemon types, including three or more types",
+  "keywords": [
+    "pokemon",
+    "calculator",
+    "types"
+  ],
   "main": "index.js",
   "module": "index.js",
   "type": "module",
