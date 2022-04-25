@@ -1,6 +1,6 @@
 {
   "name": "@auroratide/pokemon-types",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Calculate vulnerabilities and resistances of pokemon types, including three or more types",
   "keywords": [
     "pokemon",
