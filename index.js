@@ -179,6 +179,9 @@ const combine = (type1, type2) => Object.entries(type1).reduce((combined, [attac
 }), {})
 
 export const defensiveMultipliers = (types) => {
+    if (types.length === 0)
+        throw new Error('No types were provided')
+
     if (types.some(it => !allTypes.includes(it)))
         throw new Error(`Invalid Pokemon type: [${types.join(', ')}]`)
 

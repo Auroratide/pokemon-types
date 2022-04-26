@@ -124,4 +124,10 @@ test('unknown type', () => {
     })
 })
 
+test('no types', () => {
+    assert.throws(() => {
+        defensiveMultipliers([])
+    })
+})
+
 test.run()
